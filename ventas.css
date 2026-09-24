@@ -1,35 +1,683 @@
-body {
-    font-family: Arial;
-    background-color: #0f172a;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+:root {
+--blanco: #ffffff;
+--fondo: #f8f9fc;
+
+
+--texto: #17172a;
+--texto-secundario: #5f6275;
+--texto-suave: #8a8da0;
+
+--violeta: #7c3aed;
+--violeta-claro: #a855f7;
+
+--rosa: #ec4899;
+--azul-violeta: #6366f1;
+
+--borde: #e7e8ef;
+
+--sombra:
+    0 25px 70px rgba(38, 28, 70, 0.10),
+    0 5px 20px rgba(38, 28, 70, 0.05);
+
+--radio: 22px;
+
+
 }
 
+/* =========================================================
+RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+  }
+
+html {
+min-height: 100%;
+}
+
+body {
+position: relative;
+
+
+min-height: 100vh;
+margin: 0;
+padding: 32px 20px;
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+color: var(--texto);
+
+background: #ffffff;
+
+overflow-x: hidden;
+
+
+}
+
+/* =========================================================
+MANCHAS VIOLETA / ROSA
+========================================================= */
+
+body::before {
+content: "";
+
+position: fixed;
+z-index: -2;
+
+width: 430px;
+height: 430px;
+
+top: -190px;
+left: -170px;
+
+border-radius: 50%;
+
+background:
+    radial-gradient(
+        circle,
+        rgba(168, 85, 247, 0.20) 0%,
+        rgba(168, 85, 247, 0.10) 35%,
+        transparent 70%
+    );
+
+filter: blur(35px);
+
+pointer-events: none;
+
+
+}
+
+body::after {
+content: "";
+
+
+position: fixed;
+z-index: -2;
+
+width: 480px;
+height: 480px;
+
+right: -220px;
+bottom: -220px;
+
+border-radius: 50%;
+
+background:
+    radial-gradient(
+        circle,
+        rgba(236, 72, 153, 0.17) 0%,
+        rgba(124, 58, 237, 0.08) 38%,
+        transparent 70%
+    );
+
+filter: blur(45px);
+
+pointer-events: none;
+
+
+}
+
+/* =========================================================
+MANCHAS ADICIONALES
+========================================================= */
+
+.contenedor::before {
+content: "";
+
+
+position: fixed;
+z-index: -1;
+
+width: 260px;
+height: 260px;
+
+top: 48%;
+right: 7%;
+
+border-radius: 50%;
+
+background:
+    radial-gradient(
+        circle,
+        rgba(139, 92, 246, 0.09),
+        transparent 70%
+    );
+
+filter: blur(35px);
+
+pointer-events: none;
+
+
+}
+
+/* =========================================================
+TARJETA PRINCIPAL
+========================================================= */
+
 .contenedor {
-    background-color: #1e293b;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
+position: relative;
+
+
+width: min(100%, 520px);
+
+padding: clamp(30px, 5vw, 46px);
+
+background: rgba(255, 255, 255, 0.94);
+
+border: 1px solid rgba(124, 58, 237, 0.10);
+
+border-radius: var(--radio);
+
+box-shadow: var(--sombra);
+
+overflow: hidden;
+
+
+}
+
+/* Línea decorativa superior */
+
+.contenedor::after {
+content: "";
+
+
+position: absolute;
+
+top: 0;
+left: 12%;
+right: 12%;
+
+height: 3px;
+
+border-radius: 0 0 10px 10px;
+
+background:
+    linear-gradient(
+        90deg,
+        var(--azul-violeta),
+        var(--violeta),
+        var(--rosa)
+    );
+
+
+}
+
+/* =========================================================
+ENCABEZADO
+========================================================= */
+
+.encabezado {
+margin-bottom: 34px;
+}
+
+.etiqueta {
+display: inline-block;
+
+
+margin-bottom: 12px;
+
+color: var(--violeta);
+
+font-size: 0.82rem;
+font-weight: 800;
+
+letter-spacing: 0.12em;
+
+text-transform: uppercase;
+
+
+}
+
+.encabezado h1 {
+margin: 0;
+
+
+color: var(--texto);
+
+font-size: clamp(2rem, 6vw, 2.65rem);
+line-height: 1.08;
+
+letter-spacing: -0.045em;
+
+font-weight: 800;
+
+
+}
+
+.encabezado p {
+margin: 14px 0 0;
+
+
+max-width: 430px;
+
+color: var(--texto-secundario);
+
+font-size: 1.05rem;
+line-height: 1.65;
+
+
+}
+
+/* =========================================================
+FORMULARIO
+========================================================= */
+
+.formulario {
+display: flex;
+flex-direction: column;
+
+
+gap: 21px;
+
+
+}
+
+.campo {
+display: flex;
+flex-direction: column;
+
+
+gap: 9px;
+
+
+}
+
+.campo label {
+color: var(--texto);
+
+
+font-size: 1rem;
+font-weight: 700;
+
+
 }
 
 input {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 5px;
+width: 100%;
+
+
+min-height: 58px;
+
+margin: 0;
+padding: 0 17px;
+
+color: var(--texto);
+
+background: #ffffff;
+
+border: 1.5px solid var(--borde);
+
+border-radius: 13px;
+
+outline: none;
+
+font-family: inherit;
+font-size: 1rem;
+
+transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    background 180ms ease;
+
+
 }
 
+input::placeholder {
+color: #a0a3b2;
+}
+
+input:hover {
+border-color: #c8b5f5;
+}
+
+input:focus {
+border-color: var(--violeta);
+
+background: #ffffff;
+
+box-shadow:
+    0 0 0 4px rgba(124, 58, 237, 0.09),
+    0 8px 22px rgba(124, 58, 237, 0.08);
+
+transform: translateY(-1px);
+
+
+}
+
+/* =========================================================
+BOTÓN
+========================================================= */
+
 button {
-    width: 100%;
-    padding: 10px;
-    background-color: #22c55e;
-    border: none;
-    color: white;
-    cursor: pointer;
+position: relative;
+
+
+width: 100%;
+
+min-height: 60px;
+
+margin-top: 6px;
+
+padding: 0 20px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+gap: 12px;
+
+color: #ffffff;
+
+background:
+    linear-gradient(
+        100deg,
+        #6366f1,
+        #7c3aed 52%,
+        #c026d3
+    );
+
+border: none;
+
+border-radius: 14px;
+
+cursor: pointer;
+
+font-family: inherit;
+font-size: 1.05rem;
+font-weight: 750;
+
+box-shadow:
+    0 12px 28px rgba(124, 58, 237, 0.22);
+
+transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+
+
 }
 
 button:hover {
-    background-color: #16a34a;
+transform: translateY(-2px);
+
+
+box-shadow:
+    0 16px 34px rgba(124, 58, 237, 0.30);
+
+filter: brightness(1.04);
+
+
+}
+
+button:active {
+transform: translateY(0);
+}
+
+button:focus-visible {
+outline: 3px solid rgba(124, 58, 237, 0.25);
+outline-offset: 4px;
+}
+
+.flecha {
+font-size: 1.35rem;
+
+
+transition: transform 180ms ease;
+
+
+}
+
+button:hover .flecha {
+transform: translateX(5px);
+}
+
+/* =========================================================
+RESULTADOS
+========================================================= */
+
+.resultados {
+margin-top: 34px;
+padding-top: 27px;
+
+
+border-top: 1px solid #ececf2;
+
+
+}
+
+.resultados-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+
+margin-bottom: 12px;
+
+
+}
+
+.resultados-header h2 {
+margin: 0;
+
+
+color: var(--texto);
+
+font-size: 1.15rem;
+font-weight: 800;
+
+letter-spacing: -0.01em;
+
+
+}
+
+.indicador {
+width: 9px;
+height: 9px;
+
+
+border-radius: 50%;
+
+background: var(--rosa);
+
+box-shadow:
+    0 0 0 4px rgba(236, 72, 153, 0.09),
+    0 0 14px rgba(236, 72, 153, 0.25);
+
+
+}
+
+.resultado {
+min-height: 62px;
+
+
+padding: 0 16px;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+gap: 20px;
+
+border-bottom: 1px solid #eeeeF3;
+
+
+}
+
+.resultado span {
+color: var(--texto-secundario);
+
+
+font-size: 1rem;
+font-weight: 500;
+
+
+}
+
+.resultado strong {
+color: var(--texto);
+
+
+font-size: 1.05rem;
+font-weight: 800;
+
+text-align: right;
+
+
+}
+
+.resultado-total {
+min-height: 70px;
+
+
+margin-top: 12px;
+
+border: 1px solid rgba(124, 58, 237, 0.12);
+
+border-radius: 14px;
+
+background:
+    linear-gradient(
+        100deg,
+        rgba(99, 102, 241, 0.055),
+        rgba(236, 72, 153, 0.07)
+    );
+
+
+}
+
+.resultado-total span {
+color: var(--texto);
+
+
+font-size: 1.05rem;
+font-weight: 750;
+
+
+}
+
+.resultado-total strong {
+color: var(--violeta);
+font-size: 1.25rem;
+
+
+}
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media (max-width: 600px) {
+
+
+body {
+    padding: 20px 15px;
+    align-items: center;
+}
+
+.contenedor {
+    width: 100%;
+    padding: 30px 22px;
+    border-radius: 19px;
+}
+
+.encabezado h1 {
+    font-size: 2rem;
+}
+
+.encabezado p {
+    font-size: 1rem;
+}
+
+
+}
+
+/* =========================================================
+MÓVIL PEQUEÑO
+========================================================= */
+
+@media (max-width: 380px) {
+
+
+body {
+    padding: 12px;
+}
+
+.contenedor {
+    padding: 27px 18px;
+}
+
+.encabezado {
+    margin-bottom: 28px;
+}
+
+.encabezado h1 {
+    font-size: 1.75rem;
+}
+
+.encabezado p {
+    font-size: 0.95rem;
+}
+
+.campo label {
+    font-size: 0.95rem;
+}
+
+input {
+    min-height: 55px;
+    font-size: 0.96rem;
+}
+
+button {
+    min-height: 57px;
+    font-size: 1rem;
+}
+
+.resultado {
+    padding: 0 12px;
+}
+
+.resultado span {
+    font-size: 0.92rem;
+}
+
+.resultado strong {
+    font-size: 0.96rem;
+}
+
+.resultado-total strong {
+    font-size: 1.1rem;
+}
+
+
+}
+
+/* =========================================================
+ACCESIBILIDAD
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+
+*,
+*::before,
+*::after {
+    animation: none !important;
+    transition: none !important;
+}
+
+
 }

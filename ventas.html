@@ -1,33 +1,105 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora de Comisiones">
     <title>Calculadora de Comisiones</title>
-    <link rel="stylesheet" href="ventas.css">
-    <script src="ventas.js"></script>
+
+
+<link rel="stylesheet" href="ventas.css">
+
+<script src="utils.js" defer></script>
+<script src="ventas.js" defer></script>
+
+
 </head>
+
 <body>
 
-    <div class="contenedor">
+<main class="contenedor">
+
+    <header class="encabezado">
+        <span class="etiqueta">VENTAS · COMISIONES</span>
+
         <h1>Calculadora de Comisiones</h1>
 
-        <label>Salario Base:</label>
-        <input type="text" id="txtSueldoBase">
+        <p>
+            Calcula tu comisión y conoce rápidamente el total de tus ingresos.
+        </p>
+    </header>
 
-        <label>Número de ventas:</label>
-        <input type="text" id="txtVentas">
+    <section class="formulario">
 
-        <label>Precio del producto:</label>
-        <input type="text" id="txtPrecio">
+        <div class="campo">
+            <label for="txtSueldoBase">Salario Base</label>
 
-        <button onclick="calcular()">Calcular Comisión</button>
+            <input
+                type="text"
+                id="txtSueldoBase"
+                inputmode="decimal"
+                autocomplete="off"
+                placeholder="Ingresa tu salario base"
+            >
+        </div>
 
-        <h2>Resultados</h2>
-        <p>Salario Base: <span id="spSueldoBase"></span></p>
-        <p>Comisión: <span id="spComision"></span></p>
-        <p>Total: <span id="spTotal"></span></p>
-    </div>
+        <div class="campo">
+            <label for="txtVentas">Número de ventas</label>
 
-    <script src="ventas.js"></script>
+            <input
+                type="text"
+                id="txtVentas"
+                inputmode="numeric"
+                autocomplete="off"
+                placeholder="Ingresa el número de ventas"
+            >
+        </div>
+
+        <div class="campo">
+            <label for="txtPrecio">Precio del producto</label>
+
+            <input
+                type="text"
+                id="txtPrecio"
+                inputmode="decimal"
+                autocomplete="off"
+                placeholder="Ingresa el precio"
+            >
+        </div>
+
+        <button type="button" onclick="calcular()">
+            <span>Calcular Comisión</span>
+            <span class="flecha" aria-hidden="true">→</span>
+        </button>
+
+    </section>
+
+    <section class="resultados" aria-labelledby="tituloResultados">
+
+        <div class="resultados-header">
+            <h2 id="tituloResultados">Resultados</h2>
+            <span class="indicador" aria-hidden="true"></span>
+        </div>
+
+        <div class="resultado">
+            <span>Salario Base</span>
+            <strong id="spSueldoBase"></strong>
+        </div>
+
+        <div class="resultado">
+            <span>Comisión</span>
+            <strong id="spComision"></strong>
+        </div>
+
+        <div class="resultado resultado-total">
+            <span>Total</span>
+            <strong id="spTotal"></strong>
+        </div>
+
+    </section>
+
+</main>
+
 </body>
 </html>
