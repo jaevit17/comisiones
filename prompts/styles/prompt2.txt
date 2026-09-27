@@ -1,0 +1,23 @@
+Toma un papel de Programador Designer Graphic
+
+Objetivo: Añadir tematica Financiera IMPULS Solidary 
+en web secundaria de una principal de la misma.
+
+Acciones:
+1.Usa Diseño Profesional Moderno Letras Grandes y contrastes 
+visuales definidos perfectos en Marketing Financiero.
+
+2.Añade un encabezado pequeño ligero que muestre logo 
+logoCooperativa.png en un Div violeta. parque izquierda.
+
+3.Añade un pie de Pagina corto con banner para Marketing 
+financiero.
+
+4.No Cambies nombres de IDs y Clases actuales para no alterar
+ el codigo actual.
+
+5.Has un codigo responsive profesinal estilo Apple para los 
+dispositivos moviles.
+
+Entregame con cambios unicos necesarios con indicaciones 
+claras, de ser necesario cambiar codigo completo dame el nuevo codigo.

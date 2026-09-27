@@ -1,0 +1,27 @@
+Actúa como desarrollador FullStack y mejora las validaciones de 
+mi formulario de comisiones.
+
+Objetivo: evitar datos incorrectos antes de realizar el cálculo.
+
+Campos: txtSueldoBase, txtVentas, txtPrecio.
+
+Validaciones:
+No permitir campos vacíos.
+Solo números y máximo 5 dígitos.
+Permitir hasta 2 decimales.
+No aceptar negativos ni valores inválidos.
+Evitar NaN o Infinity.
+No calcular si existe algún campo incorrecto.
+
+Acciones:
+Validar con onblur y antes de calcular.
+No usar alert().
+Mostrar el error debajo de cada input.
+Mensajes claros, cursivos y con estilo violeta/magenta.
+
+Importante:
+No cambiar IDs ni la lógica existente. Solo modificar lo 
+necesario.
+
+Devuelve únicamente los cambios de HTML, CSS y JS, no el 
+código completo.

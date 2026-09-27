@@ -681,3 +681,27 @@ ACCESIBILIDAD
 
 
 }
+.error-mensaje {
+    min-height: 18px;
+    margin-top: -3px;
+    padding-left: 3px;
+
+    color: var(--rosa);
+    font-size: 0.84rem;
+    font-style: italic;
+    font-weight: 600;
+
+    opacity: 0;
+    transform: translateY(-3px);
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.error-mensaje.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.input-error {
+    border-color: var(--rosa) !important;
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.10) !important;
+}
